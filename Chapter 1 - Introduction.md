@@ -30,3 +30,7 @@ We have identified 16 builduing blocks that are crucial in designing modern syst
 ## About this course
 
 This coruse is about designing systems that scale with increasing users, remain available under different faults, and meet functional goals with good performance. Real-world system building is an iterative process where we start with a reasonably good design, measure how it performs, and improve the design in the next iteration.
+
+The focus of this course is to immerse ourselves into carefully-selected system design endeavors to enable ourselves to tackle any novel design problem; be it in a system design interview or a task at the office. This course aims to teach concepts instead of giving out boilerplate designs. Some gaps that this course fills are:
+
+- **A fresh look at system design:** Many system design courses provide a formula to attack a specific problem. While this might seems attractive in a high-stress situation like an interview, it might encourage memorizing a design solution instead of actually understanding the problem and devising an appropriate solution. That why we aim to attack a design problem from the first principles, which gives a fresh feel to it.
