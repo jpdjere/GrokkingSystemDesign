@@ -34,3 +34,10 @@ This coruse is about designing systems that scale with increasing users, remain 
 The focus of this course is to immerse ourselves into carefully-selected system design endeavors to enable ourselves to tackle any novel design problem; be it in a system design interview or a task at the office. This course aims to teach concepts instead of giving out boilerplate designs. Some gaps that this course fills are:
 
 - **A fresh look at system design:** Many system design courses provide a formula to attack a specific problem. While this might seems attractive in a high-stress situation like an interview, it might encourage memorizing a design solution instead of actually understanding the problem and devising an appropriate solution. That why we aim to attack a design problem from the first principles, which gives a fresh feel to it.
+
+- **Going deep and broad:** We tackle some traditional problems, but with added in-depth discussions on them. We give proper rationale for why use some components despite their trade-offs. For example, we explain why we use a particular database, a cacheing system or a load balancing techinque in a design.
+
+  
+  We adress some new design problem as well that touch upon not only only scalability but also availability, maintainability, consistency and fault-tolerance. Collectively, traditional and new problems cover all aspects of modern system design activity.
+
+- **Iterative process:**
