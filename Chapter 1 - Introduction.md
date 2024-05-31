@@ -36,8 +36,10 @@ The focus of this course is to immerse ourselves into carefully-selected system 
 - **A fresh look at system design:** Many system design courses provide a formula to attack a specific problem. While this might seems attractive in a high-stress situation like an interview, it might encourage memorizing a design solution instead of actually understanding the problem and devising an appropriate solution. That why we aim to attack a design problem from the first principles, which gives a fresh feel to it.
 
 - **Going deep and broad:** We tackle some traditional problems, but with added in-depth discussions on them. We give proper rationale for why use some components despite their trade-offs. For example, we explain why we use a particular database, a cacheing system or a load balancing techinque in a design.
-
   
   We adress some new design problem as well that touch upon not only only scalability but also availability, maintainability, consistency and fault-tolerance. Collectively, traditional and new problems cover all aspects of modern system design activity.
 
-- **Iterative process:**
+- **Iterative process:** Systems, in reality, improve over iterations. We often start with something simple, but when bottlenecks arise in one or mor of the system's parts, a new design becomes necessary. In some design problems, we make one design, identify bottleneces, and improve on it. Working under time constraints might not permit iterations on the designs. However, we still recommend two iterations - first, where do we our best to come up with a design (that takes about 80% of the available time), and a second iteration for improvements. Another choice is to change things as we figure out new insights. Inevitably, we discover new details as we spend more time working with a problem.
+
+- **Interactive learning:** We provide ample opportunities to get experience with system design. Some design problems guide learners through many steps to design a system. We also have a few exaples where the learner designs the full system end-to-end without any guided steps. We reinforce the important concepts by testing learners with questions and quizzes.
+
