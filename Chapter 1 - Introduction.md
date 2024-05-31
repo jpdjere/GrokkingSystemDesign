@@ -43,3 +43,12 @@ The focus of this course is to immerse ourselves into carefully-selected system 
 
 - **Interactive learning:** We provide ample opportunities to get experience with system design. Some design problems guide learners through many steps to design a system. We also have a few exaples where the learner designs the full system end-to-end without any guided steps. We reinforce the important concepts by testing learners with questions and quizzes.
 
+## Who should take this course?
+
+System design is for any software engineer who wants to advance in their career:
+
+- **Interview preparation:** Lately, system design is becoming an important part of software development interviews. This course helps software engineers prepare for interviews. We have an elaborate guide on preparation for a system design interview in the second chapter of this course for learners who are interested.
+
+- **Sofware developers**: System design is primarily for back-end developers who aim to become principal engineers or solution architects. It's because these engineers handle actual user data. Once the data is submitted to back-end systems by the frontend, effective handling of data makes the overall application successful. However, full stack or front-end developers may also want to learn SD to improve their work. Also, support engineers, also called SREs, who work on-call in the production environment have to deal with all sorts of problems daily. SD concepts enable SREs to efficiently find the root causes for complex problems.
+
+- ****
