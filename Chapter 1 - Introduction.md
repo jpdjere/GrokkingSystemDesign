@@ -53,3 +53,7 @@ System design is for any software engineer who wants to advance in their career:
 
 - **Product/Project managers**: A big challenge in product/project management is to build systems that scale well and perform effecitvely over time. Managers that are aware of system design can steer the design of large-scale performant systems. Therefore, it's imperative for them to understand SD concepts, to lead the design and development of successful applications.
 
+## Prerequisites for this course
+
+- Fundamental concpets of a distributed sustem
+- Basic concepts on computer networking and operating systems
