@@ -51,4 +51,5 @@ System design is for any software engineer who wants to advance in their career:
 
 - **Sofware developers**: System design is primarily for back-end developers who aim to become principal engineers or solution architects. It's because these engineers handle actual user data. Once the data is submitted to back-end systems by the frontend, effective handling of data makes the overall application successful. However, full stack or front-end developers may also want to learn SD to improve their work. Also, support engineers, also called SREs, who work on-call in the production environment have to deal with all sorts of problems daily. SD concepts enable SREs to efficiently find the root causes for complex problems.
 
-- ****
+- **Product/Project managers**: A big challenge in product/project management is to build systems that scale well and perform effecitvely over time. Managers that are aware of system design can steer the design of large-scale performant systems. Therefore, it's imperative for them to understand SD concepts, to lead the design and development of successful applications.
+
