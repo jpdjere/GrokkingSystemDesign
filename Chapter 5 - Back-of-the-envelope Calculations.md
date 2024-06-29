@@ -6,7 +6,7 @@
 
 For example, let’s say we’re in a city and want to estimate the population of a particular neighborhood. We could count the number of houses in a sample area, estimate the average number of people per household, and then extrapolate to the whole neighborhood. Similar calculations can be used to check the validity of census data for some neighborhoods.
 
-### BOTECs in system design
+## BOTECs in system design
 
 A modern system is a complex web of computational resources connected via a network. Different kinds of nodes, such as load balancers, web servers, application servers, caches, in-memory databases and storage nodes collectively serve the clients.
 
@@ -34,6 +34,88 @@ Data centers don't have a single type of server: below we discuss the different 
 
 For scalability, web servers are decoupled from application servers. **Web servers** are the first point of contact after load balancers. They usually handle API calls from clients. Depending on the service that's offered, the memory and storage in web servers can be small to medium, but **require good processing resources**. 
 
+- Primary function: Serve static content (HTML, CSS, images, etc.)
+- Handle HTTP requests directly from clients (usually web browsers)
+- Examples: Apache HTTP Server, Nginx, Microsoft IIS
+
 #### Application servers
 
 **Application servers run the core application software and business logic.** The difference between this type and web servers is somewhat fuzzy. Application servers primarily provide dynamic content, wheras web servers mostly serve static content to the client. They can require extensive computational and storage resources. They can be volatile and non-volatile.
+
+- Primary function: Execute application/business logic
+- Host and run applications, often handling dynamic content generation
+- May interact with databases and other backend services
+- Examples: Tomcat, JBoss, WebSphere, Gunicorn
+
+**Key differences between web and application servers:**
+
+- Content type: Web servers mainly handle static content, while application servers deal with dynamic content and application logic.
+- Processing: Web servers have limited processing capabilities, whereas application servers can perform complex computations.
+- Language support: Web servers are generally language-agnostic, because their primary function is to serve static content and handle HTTP requests, which doesn't require them to undersstand or execute code written in specific programming languages. Meanwhile application servers are often language or framework-specific, ecause they need to execute application code, manage application lifecycles, and provide language-specific features and optimizations.
+- Scalability: Application servers are typically designed to handle more concurrent connections and heavier loads.
+
+#### Storage servers
+
+Storage servers play a crucial role in managing the vast amounts of data generated and consumed by various applications and services. They are specialized computer systems designed to store, manage and provide access to large amounts of data.
+
+#### Types of Storage servers
+
+Storage servers can be broadly categorized based on their underlying data management systems:
+
+1. **SQL-based storage servers**
+  - Use RDBMS (relational database management systems)
+  - Ideal for structured data with predefined schemas
+  - Run software like MySQL, PostgreSQL or Oracle
+  - Excel at managing complex relationships between data points
+  - Commonly used for transactional data such as financial records or inventory management
+
+2. **NoSQL-based Storage Servers**
+  - Designed for flexible, schema-less data storage and large-scale distributed systems
+  - Includes document stores like MongoDB, key-value stores such as Redis, wide-column stores like Cassandra and graph databased like Neo4j.
+  - Particularily well-suited for handling user data, metadata and high velocity streams from sources like IoT sensors.
+
+3. **Specialized Storage Solutions**
+  - Stands between the two previous categories, and caters to specific use cases or data types.
+  - May leverage SQL, NoSQL or entirely custom technologies.
+  - Examples: blob storage for managing large binary objects like videos and images, distributed file systems like Hadoop HDFS for big data analytics, and time-series databased for handling sequential data points.
+
+Returning to the example of Facebook: they've used storage servers with storage capacity of up to 120 TB, so it is able to house exabytes of storage. However, the RAM of these servers is only 32 GB.
+
+
+## Referece point for our calculations
+
+In the table below, we depict the capabilites of a typical server (Amazon EC2 M7i-flex instances, powered by 4th Generation Intel Xeon Scalable processors) that can be used in the data centers of today:
+
+- **Processor:** Intel Xeon (Sapphire Rapids 8488C)
+- **Number of cores:** 64 cores
+- **RAM:** 256 GB
+- **Cache (L3):** 112.5MB
+- **Storage capacity:** 16TB
+
+![](2024-10-16-16-58-20.png)
+
+### Standard numbers to remember
+
+Latencies play an important role in deciding the amount of workload that a machine can handle. The list below depicts some of the important numbers system designers should know in order to perform resource estimation:
+
+| Operation name | Time |
+|----------------|------|
+| L1 cache reference | 0.5 ns |
+| Branch mispredict | 5 ns |
+| L2 cache reference | 7 ns |
+| Mutex lock/unlock | 100 ns |
+| Main memory reference | 100 ns |
+| Compress 1K bytes with Zippy | 10,000 ns = 10 μs |
+| Send 2K bytes over 1 Gbps network | 20,000 ns = 20 μs |
+| Read 1 MB sequentially from memory | 250,000 ns = 250 μs |
+| Round trip within the same datacenter | 500,000 ns = 500 μs |
+| Disk seek | 10,000,000 ns = 10 ms |
+| Read 1 MB sequentially from the network | 10,000,000 ns = 10 ms |
+| Read 1 MB sequentially from disk | 30,000,000 ns = 30 ms |
+| Send packet CA (California) -> Netherlands->CA | 150,000,000 ns = 150 ms |
+
+Remembering the order of magnitude difference between different components and operations is more important than remembering the exact numbers. For example, we should know that **doing IO-bound work (for example, reading 1 MB data sequentially from the SSD disk) is two order of magnitude slower than CPU-bound work (for example, compressing 1KB of data)**.
+
+The reason the data sized are different in comparison is that, as long as the data to compress is readily available to the processor from the L1, L2, or L3 caches, the time to compress will be relatively consistent. The data up to the size of the L3 cache of the server (which is normally a few MBs - 45 MBs for example, as mentioned above) fits entirely within the cache, and therefore, compressind data up to this limit will take almost the same time: the processor can quickly access this data in the cache without incurring the additional latency associated with fetching data from slower layers like RAM memory or storage.
+
+> L1, L2, and L3 caches: see here.
