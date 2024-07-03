@@ -118,4 +118,6 @@ Remembering the order of magnitude difference between different components and o
 
 The reason the data sized are different in comparison is that, as long as the data to compress is readily available to the processor from the L1, L2, or L3 caches, the time to compress will be relatively consistent. The data up to the size of the L3 cache of the server (which is normally a few MBs - 45 MBs for example, as mentioned above) fits entirely within the cache, and therefore, compressind data up to this limit will take almost the same time: the processor can quickly access this data in the cache without incurring the additional latency associated with fetching data from slower layers like RAM memory or storage.
 
-> L1, L2, and L3 caches: see here.
+> L1, L2, and L3 caches: see [here](./Extra%201:%20L1,%20L2%20and%20L3%20caches.md).
+
+> Clock cycles: see [here](./Extra%202:%20CPU%20Clock%20cycles.md).
