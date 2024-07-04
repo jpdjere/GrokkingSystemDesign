@@ -94,7 +94,7 @@ In the table below, we depict the capabilites of a typical server (Amazon EC2 M7
 
 ![](2024-10-16-16-58-20.png)
 
-### Standard numbers to remember
+### Important latency numbers to remember
 
 Latencies play an important role in deciding the amount of workload that a machine can handle. The list below depicts some of the important numbers system designers should know in order to perform resource estimation:
 
@@ -121,3 +121,23 @@ The reason the data sized are different in comparison is that, as long as the da
 > L1, L2, and L3 caches: see [here](./Extra%201:%20L1,%20L2%20and%20L3%20caches.md).
 
 > Clock cycles: see [here](./Extra%202:%20CPU%20Clock%20cycles.md).
+
+### Important throughput rates (QPS) to remember
+
+Apart from latencies, throughput numbers are measures as queries per second (QPS) that a typical single-server datastore can handle.
+
+| Type of storage | QPS handled |
+|----------------|------|
+| SQL | 1000 |
+| Key-value | 10,000 |
+| Cache server | 100,000 - 1 Million |
+
+The numbers above are approximations and vary greatly depending on reasones like the type of query, the machine specs, load on the server, etc.
+
+> **NOTE**: For real projects, initial designs use BOTECs similar to the ones we use in a system design interview. As the design goes through iterations for real products, we might use reference numbers from some synthetic workload that match our requests (for example, spec int for CPU characterizations and TPC-C for measuring database transactions per unit time). Initial prototypes are used to validate design-level assumptions. Later on, built-in monitoring of resources and demand is carefully analyzed to find any bottlenecks and for future capacity planning.
+
+**Why does a key-value store serve an order of magnitude more QPS compared to a SQL databes?**
+
+Because a typical key-value stores has a simpler API (`put` and `get`) compared to a relational database query that needs to go through query planning before query execution. Similarly, in-memory **caches**, have `read` and `write` operations, which are simpler than a DB or key-value query.
+
+**We need to keep the relative benefits of these systems (relational DB, key-value store and in-memory cache)**
