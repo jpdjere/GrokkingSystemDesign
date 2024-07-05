@@ -138,6 +138,12 @@ The numbers above are approximations and vary greatly depending on reasones like
 
 **Why does a key-value store serve an order of magnitude more QPS compared to a SQL databes?**
 
-Because a typical key-value stores has a simpler API (`put` and `get`) compared to a relational database query that needs to go through query planning before query execution. Similarly, in-memory **caches**, have `read` and `write` operations, which are simpler than a DB or key-value query.
+Because a typical key-value stores has a simpler API (`put` and `get`) compared to a relational database query that needs to go through query planning before query execution. Similarly, **in-memory caches in RAM**, have `read` and `write` operations, which are simpler than a DB or key-value query.
 
 **We need to keep the relative benefits of these systems (relational DB, key-value store and in-memory cache)**
+
+### Request types
+
+While estimating the number of requests a server can handle, we don't get into the details of what kind of requests we're going to calculate for. But in realy, all requests are not the same. Workloads (client requests) can be broadly classified into thre categories:
+
+1. **CPI-bound requests:** Depend primarily on the processor of a node.
