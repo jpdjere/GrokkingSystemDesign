@@ -146,4 +146,12 @@ Because a typical key-value stores has a simpler API (`put` and `get`) compared 
 
 While estimating the number of requests a server can handle, we don't get into the details of what kind of requests we're going to calculate for. But in realy, all requests are not the same. Workloads (client requests) can be broadly classified into thre categories:
 
-1. **CPI-bound requests:** Depend primarily on the processor of a node.
+1. **CPI-bound requests:** Depend primarily on the processor of a node. An example of this type of requests is compressing 1KB of data as zip. From the table above, see that such an operations takes around 3 microseconds.
+
+2. **Memory-bound requests:** These types of requests are bottlenecked by the memory subsystem. Example: reading 1 MB of data sequentially from the RAM of a node. From the table, that takes 9 microseconds (3 times slower than a CPU-bound operation!)
+
+3. **IO-bound requests:** These are bottlenecked by the IO subsystem, such as disks or the network. An example is reading 1MB sequentially from a disk drive. Such an operation takes around 200 microseconds (66 times slower than a CPU-bound operation!)
+
+Therefore we say: **if a CPU-bound request takes $X$ time units to complete some work on a node, a memory-boundy request is an order of magnitude slower (takes $10X$ time units), and an IO-bound request are two order of magnitude slower (takes $100X$) than the CPU-bound workload.**
+
+### Abstracting away the complexities of a real system
