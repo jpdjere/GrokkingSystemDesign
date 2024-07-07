@@ -155,3 +155,5 @@ While estimating the number of requests a server can handle, we don't get into t
 Therefore we say: **if a CPU-bound request takes $X$ time units to complete some work on a node, a memory-boundy request is an order of magnitude slower (takes $10X$ time units), and an IO-bound request are two order of magnitude slower (takes $100X$) than the CPU-bound workload.**
 
 ### Abstracting away the complexities of a real system
+
+Above, 
