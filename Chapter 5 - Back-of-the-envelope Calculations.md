@@ -156,4 +156,14 @@ Therefore we say: **if a CPU-bound request takes $X$ time units to complete some
 
 ### Abstracting away the complexities of a real system
 
-Above, 
+Real system are complex, and taking them into account in an interview is impractical. So we'll using BOTECs moving forward.
+
+#### Request estimation in system design
+
+This section discusses the number of requests a **typical server** can handle in a second. A real request will touch many nodes in a data center for different kinds of processing before a reply can be sent back to the client, and we'll accumulate all such work for our estimations.
+
+The following equation calculates the CPU time to execute a program (request). For simplicty, **we assume that each instruction can be executed in one clock cycle**.
+
+Therefore, $\text{CPI}$ (clock cycles per instructions) is 1 in the following equations.
+
+Let's assume the average clock rate for our server's processor is $3.5 \text{GHz}$ (3,500,000,000 cycles per second). It's reasonable to assume that a request will consume a few million instructions for full processing. For simplicity , let's assume that, on average, each request needs 3.5 million instructions.
