@@ -167,3 +167,32 @@ The following equation calculates the CPU time to execute a program (request). F
 Therefore, $\text{CPI}$ (clock cycles per instructions) is 1 in the following equations.
 
 Let's assume the average clock rate for our server's processor is $3.5 \text{GHz}$ (3,500,000,000 cycles per second). It's reasonable to assume that a request will consume a few million instructions for full processing. For simplicity , let's assume that, on average, each request needs 3.5 million instructions.
+
+$$ \text{CPU}_\text{time per request} = \text{Instructions per request} \space \times \text{CPI} \times \text{CPU time per clock cycle}$$
+$$ \text{CPU}_\text{time per request} = \frac{\text{Instruction}}{\text{Request}} \space \times \frac{\text{Clock Cycles}}{\text{Instruction}} \times \frac{\text{Seconds}}{\text{Clock Cycles}} = \frac{\text{Seconds}}{\text{Request}}$$
+
+So we can see that the result is in seconds per request, the time taken by the CPU to process each request.
+
+Now let's put the assumed values in the equation. But before that, we need to find the last term of our equation, the $\text{CPU time per clock cycle}$, given that our CPU frequency equals 3.5 GHz:
+
+$$ \text{Clock cycles per second for a CPU of 3.5GHz clock rate} =  3.5 \times 10^9 \frac{1}{s}$$
+
+$$\text{CPU time per clock cycle} = \frac{1}{3.5 \times 10^9 \frac{1}{s}} = \frac{1}{3.5 \times 10^9} s$$
+
+Replacing all values in the equations gives us: 
+
+$$ \text{CPU}_\text{time per request} = \text{Instructions per request} \space \times \text{CPI} \times \text{CPU time per clock cycle}$$
+
+$$ \text{CPU}_\text{time per request} = (3.5 \times 10^6) \ \space \times 1 \times \frac{\text{1}}{3.5 \times 10^9} = 0.001 \space \text{seconds}$$
+
+And we can thefore calculate total requests a CPU can handle in one second:
+
+$$ \text{Total requests a CPU executes in 1 second} = \frac{1}{0.001} = \frac{1}{10^{-3}} = 1000 \space \text{requests}$$
+
+And therefor for a 64 core server:
+
+$$ \text{Total requests a 64 core server executes in 1 second} = \frac{1}{0.001} = \frac{1}{10^{-3}} = 64.000 \space \text{requests}$$
+
+Not that we have avoided the complexities related to CPU, memory or io-bound requests and system archtecture - this is the hallmark of BOTECs.
+
+Next, we'll ue our RPS numbers for server estimation with other resources, such as storage and network bandwith.
