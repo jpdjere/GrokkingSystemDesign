@@ -195,4 +195,46 @@ $$ \text{Total requests a 64 core server executes in 1 second} = \frac{1}{0.001}
 
 Not that we have avoided the complexities related to CPU, memory or io-bound requests and system archtecture - this is the hallmark of BOTECs.
 
-Next, we'll ue our RPS numbers for server estimation with other resources, such as storage and network bandwith.
+Next, we'll use our RPS numbers for server estimation with other resources, such as storage and network bandwith.
+
+---
+
+## Examples of Resource Estimation
+
+Let's now estimate resources liek servers, storage and bandwith. We'll use Twitter as an example to make assumptions and make estimations based on that.
+
+### Number of servers required
+
+Let’s make the following assumptions about a Twitter-like service:
+
+**Assumptions:**
+
+- There are 500 M daily active users (DAU)
+- A single user makes 20 requests per day on average
+- We know that a single server (with 64 cores) can handle 64.000 RPS.
+
+So, to **estimate the number of requests per second:**
+
+$$ \text{Total requests per second} = \frac{500 M \frac{DAU}{day} \times 20 \frac{req}{DAU} }{3600 \frac{s}{h}\times 24h} = 115.000 \space \frac{\text{req}}{s} $$
+
+And therefore, **to estimate the number of servers needed:**
+
+$$ \text{Number of servers needed} = \frac{\text{Number of requests per second}}{\text{RPS handled by 1 server}} = \frac{115.000}{64.000} ≈ 2 \space \text{servers to handle all requests} $$
+
+
+Notice that there's a hidden assumption in our calculations above: when we divided the daily user requests by the number of second in a day, we assumed that those requests were uniformly distributed over the second of the day. Is that reasonable? Rarely will a service get such a uniform distribution of requests. So doing this type of calculation can be considered a **lower bound** on the resource.
+
+We can do a **plausibility test**: for all BOTECs, we need to judge if our numbers seems reasonable: If the estimate was two servers for a large service with millions of DAUs, that number seems far from reality, even for a lower bound.
+
+### Peak capacity
+
+Large services need to be ready for flash crowds. So we can make an estimate for the **peak capacity** by just saying that there's a specific second in the day when all the requests of all our DAUs arrive simultaneously.
+
+Doing this the number of servers needed at peak load becomes:
+
+$$ \text{Number of servers needed at peak} = \frac{\text{Number of requests per second}}{\text{RPS handled by 1 server}} = \frac{50 M \times 20}{64.000} ≈ 157.000 \space \text{servers to handle all requests} $$
+
+Our calculations now say we'd need 157.000 servers! Which sounds simply not feasible. So we have two potential paths forward:
+
+1. **Improving the RPS of a server:** while possible (there are real-case examples for this), it is usually at the expense of focused R&D efforts and related dollar cost.
+
