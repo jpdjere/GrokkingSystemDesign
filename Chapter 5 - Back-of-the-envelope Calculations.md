@@ -238,3 +238,7 @@ Our calculations now say we'd need 157.000 servers! Which sounds simply not feas
 
 1. **Improving the RPS of a server:** while possible (there are real-case examples for this), it is usually at the expense of focused R&D efforts and related dollar cost.
 
+2. **Improving the peak load assumption**:
+
+
+
