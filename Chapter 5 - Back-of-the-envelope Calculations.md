@@ -240,5 +240,7 @@ Our calculations now say we'd need 157.000 servers! Which sounds simply not feas
 
 2. **Improving the peak load assumption**:
 
+The more reasonable option is to change our assumption for the peak load. For example, we could use a request and response distribution, or follow a particular type of distribution, for example, Poisson.
 
+But using the **Pareto principle** is a resonable approach in most cases:
 
