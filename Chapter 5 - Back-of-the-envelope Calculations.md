@@ -242,5 +242,5 @@ Our calculations now say we'd need 157.000 servers! Which sounds simply not feas
 
 The more reasonable option is to change our assumption for the peak load. For example, we could use a request and response distribution, or follow a particular type of distribution, for example, Poisson.
 
-But using the **Pareto principle** is a resonable approach in most cases:
+But using the **Pareto principle** is a reasonable approach in most cases: it suggest that approximately 80% of the effects comes from 20% of the causes. Applied to our case, we can assume that 80% of our peak traffic occurs within 20% of the time of the day, that is a 4.8 hours window in 24 hours.
 
