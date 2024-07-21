@@ -244,3 +244,6 @@ The more reasonable option is to change our assumption for the peak load. For ex
 
 But using the **Pareto principle** is a reasonable approach in most cases: it suggest that approximately 80% of the effects comes from 20% of the causes. Applied to our case, we can assume that 80% of our peak traffic occurs within 20% of the time of the day, that is a 4.8 hours window in 24 hours.
 
+$$ \text{Servers needed at peak} = \frac{\text{Number of requests per second}}{\text{RPS handled by 1 server}} = \frac{\frac{0.8 \times 50 M \times 20}{4.8 \times 3600 s}}{64.000} ≈ 8 \space \text{servers to handle all requests} $$
+
+Notice again that we've assumed that the requests are equally distributed in the 4.8 hour window, but there's already a huge difference with respect to the case where all requests show up concurrently.
