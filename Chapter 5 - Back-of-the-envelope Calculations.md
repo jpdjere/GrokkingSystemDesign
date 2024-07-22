@@ -246,4 +246,6 @@ But using the **Pareto principle** is a reasonable approach in most cases: it su
 
 $$ \text{Servers needed at peak} = \frac{\text{Number of requests per second}}{\text{RPS handled by 1 server}} = \frac{\frac{0.8 \times 50 M \times 20}{4.8 \times 3600 s}}{64.000} ≈ 8 \space \text{servers to handle all requests} $$
 
-Notice again that we've assumed that the requests are equally distributed in the 4.8 hour window, but there's already a huge difference with respect to the case where all requests show up concurrently.
+Notice again that we've assumed that the requests are equally distributed in the 4.8 hour window, but there's already a huge difference with respect to the case where all requests show up concurrently. 
+
+Nevertheless, when we build systems on assumptions like these, we need to set up monitoring systems to ensure they are not violated: if the load gets higher than we predict, we can use techiques like load-shedding, circuit-breakers and throttling (rate limiting).
