@@ -248,4 +248,15 @@ $$ \text{Servers needed at peak} = \frac{\text{Number of requests per second}}{\
 
 Notice again that we've assumed that the requests are equally distributed in the 4.8 hour window, but there's already a huge difference with respect to the case where all requests show up concurrently. 
 
-Nevertheless, when we build systems on assumptions like these, we need to set up monitoring systems to ensure they are not violated: if the load gets higher than we predict, we can use techiques like load-shedding, circuit-breakers and throttling (rate limiting).
+Nevertheless, when we build systems on assumptions like these, we need to set up monitoring systems to ensure they are not violated: if the load gets higher than we predict, we can use techniques like load-shedding, circuit-breakers and throttling (rate limiting).
+
+#### Graceful degradation
+
+Flash crowds are possible, even causing a situation where all DAUs come in simultaneously. For example a service hosting a dynamic and personalized website for a large news organization.
+
+In an event like 9/11 maybe all DAUs will make requests simultaneously. How can we **gracefully degrade** the service to meet such an expected load.
+
+Some options:
+
+1. We can **abandon per-user personalization**, since users mostly care about reading about current events.
+2. We can **shift to a static-like website** where content is pushed to **CDN nodes** and updated by the service when new updates come in.
