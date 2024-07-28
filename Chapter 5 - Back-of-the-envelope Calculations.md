@@ -259,4 +259,7 @@ In an event like 9/11 maybe all DAUs will make requests simultaneously. How can 
 Some options:
 
 1. We can **abandon per-user personalization**, since users mostly care about reading about current events.
-2. We can **shift to a static-like website** where content is pushed to **CDN nodes** and updated by the service when new updates come in.
+2. We can **shift to a static-like website** where content is pushed to **CDN nodes** and updated by the service when new updates come in. This makes request/responses fast, as users get their data from CDNs, which will have multiple edge nodes near customers.
+3. We can **reduce the use of multimedia content**, so the clients, whose networks might also be congested, could get information in fewer bytes.
+
+### Cost of servers
