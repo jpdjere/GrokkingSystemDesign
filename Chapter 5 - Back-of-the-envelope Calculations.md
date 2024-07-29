@@ -263,3 +263,32 @@ Some options:
 3. We can **reduce the use of multimedia content**, so the clients, whose networks might also be congested, could get information in fewer bytes.
 
 ### Cost of servers
+
+Let's an EC2 instance type called: **m7i.16xlarge**, with a 64-core processor and 256 GB of RAM, to make our cost estimation.
+
+Its **cost per hours is: 3.54 $/hour** with a 1-year contract plan.
+
+
+Its specifications are:
+
+| Instance Size | vCPU | Memory (GiB) | Instance Storage (GB) | Network Bandwidth (Gbps) | EBS Bandwidth (Gbps) |
+|--------------|------|--------------|---------------------|------------------------|-------------------|
+| m7i.16xlarge | 64   | 256          | EBS-Only            | 25                     | 20                |
+
+So we can do some simple maths to get the cost of our servers handling the different assumptions of our load:
+
+**Lower bound server cost, per hour:**
+
+$$ 2 \space \text{servers} \times 3.548 \space \$/\text{server-h} =  7.096 \space \$/h $$
+
+**Cost under the 80-20 assumption**
+
+$$ 8 \space \text{servers} \times 3.548 \space \$/\text{server-h} =  28.38 \space \$/h $$
+
+**Cost under the all-simultaneous DAUs peak load**
+
+$$ 157,000 \space \text{servers} \times 3.548 \space \$/\text{server-h} =  557,061 \space \$/h $$
+
+Notice how the const can quickly pile up. In real life, the dollar budget for server is a hard constraint.
+
+### Storage requirements
