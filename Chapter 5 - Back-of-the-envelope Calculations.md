@@ -292,3 +292,7 @@ $$ 157,000 \space \text{servers} \times 3.548 \space \$/\text{server-h} =  557,0
 Notice how the const can quickly pile up. In real life, the dollar budget for server is a hard constraint.
 
 ### Storage requirements
+
+Let's see now how to do **storage estimation** by using Twitter as an example. We can estimate Twitters storage requirements for new tweets in 1 year. We do the following assumptions:
+
+- 500 M DAUs
