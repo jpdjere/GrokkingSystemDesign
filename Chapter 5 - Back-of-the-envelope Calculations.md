@@ -296,3 +296,4 @@ Notice how the const can quickly pile up. In real life, the dollar budget for se
 Let's see now how to do **storage estimation** by using Twitter as an example. We can estimate Twitters storage requirements for new tweets in 1 year. We do the following assumptions:
 
 - 500 M DAUs
+- Each user posts an average of 3 tweets per day
