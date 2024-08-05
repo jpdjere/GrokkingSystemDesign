@@ -300,3 +300,9 @@ Let's see now how to do **storage estimation** by using Twitter as an example. W
 - 10% of tweets contain images, while 5% contain videos. They have either images or video, not both.
 - An image weights an average 200 Kb and a video 3 Mb.
 - The tweet text and its metadata require a total of 250 bytes of storage.
+
+So we can easily calculate:
+
+$$ \text{Total tweets per day} = 500 M \times 3 = 1500 M = 1500 \times 10^6 $$
+
+$$ \text{Storage required for tweets of 1 day} = 1500 $$
