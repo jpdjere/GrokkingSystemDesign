@@ -305,4 +305,7 @@ So we can easily calculate:
 
 $$ \text{Total tweets per day} = 500 M \times 3 = 1500 M = 1500 \times 10^6 $$
 
-$$ \text{Storage required for tweets of 1 day} = 1500 \times 10^6 \times 250 B = 375\space GB $$
+$$ \text{Storage required for tweets of 1 day} = 1500 \times 10^6 \times 250 B = 375 \times 10^9 B = 375\space GB $$
+
+$$ \text{Storage required for images of 1 day} = 1500 \times 10^6 \times 0.1 \times 200 \times 10^3 B = 30 \times 10^{12}B = 30\space TB $$
+
