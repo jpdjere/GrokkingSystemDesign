@@ -313,5 +313,7 @@ $$ \text{Storage required for videos of 1 day} = 1500 \times 10^6 \times 0.05 \t
 
 Great, so we can make calculations for a single day and a year:
 
+$$ \text{Total storage required for one day} = 0.375 TB + 30 TB + 225 TB  ≈ 255 TB $$
 
+$$ \text{Total storage required for one year} = 255 TB \times 365  ≈ 93,075 TB = 93.08 PB $$
 
