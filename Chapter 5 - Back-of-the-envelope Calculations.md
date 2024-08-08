@@ -309,3 +309,9 @@ $$ \text{Storage required for tweets of 1 day} = 1500 \times 10^6 \times 250 B =
 
 $$ \text{Storage required for images of 1 day} = 1500 \times 10^6 \times 0.1 \times 200 \times 10^3 B = 30 \times 10^{12}B = 30\space TB $$
 
+$$ \text{Storage required for videos of 1 day} = 1500 \times 10^6 \times 0.05 \times 3 \times 10^6 B = 225 \times 10^{12}B = 225\space TB $$
+
+Great, so we can make calculations for a single day and a year:
+
+
+
