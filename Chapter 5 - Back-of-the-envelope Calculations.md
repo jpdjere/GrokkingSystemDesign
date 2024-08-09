@@ -317,3 +317,5 @@ $$ \text{Total storage required for one day} = 0.375 TB + 30 TB + 225 TB  ≈ 25
 
 $$ \text{Total storage required for one year} = 255 TB \times 365  ≈ 93,075 TB = 93.08 PB $$
 
+### Bandwidth requirements
+
