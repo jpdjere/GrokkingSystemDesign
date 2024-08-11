@@ -336,3 +336,16 @@ $$ \text{Total storage required for one year} = 255 TB \times 365  ≈ 93,075 TB
 
 ### Bandwidth requirements
 
+To estimate the bandwidth requirements for a service, we use the following steps:
+
+**1. Estimate the daily amount of incoming data to the service**
+**2. Estimate the daily amount of outgoing data from the service**
+**3. Estimate the bandwidth in Gbps (Gigabits per second) by dividing the incoming and outgoing data by the number of second in a day**
+
+**Incoming traffic**: we can continue our previous example of Twitter, which requires 255 TBs of storage each day. So:
+
+$$ \text{Bandwidth needed for incoming traffic} = \frac{255 \times 10^{12}B}{86400 \space s} \times 8 \space \frac{b}{B} = 24 \space Gbps $$
+
+Note that we multiply by 8 to convert bytes into bits, since bandwith is measure in bits per second.
+
+**Outgoing traffic:** le
