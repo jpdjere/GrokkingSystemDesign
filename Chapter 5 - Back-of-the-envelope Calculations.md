@@ -348,4 +348,6 @@ $$ \text{Bandwidth needed for incoming traffic} = \frac{255 \times 10^{12}B}{864
 
 Note that we multiply by 8 to convert bytes into bits, since bandwith is measure in bits per second.
 
-**Outgoing traffic:** le
+**Outgoing traffic:** Let's assume that a single user views 50 tweets in a day. Considering the same ratio of five percent and 10 percent for videos and images, respectively, for those 50 tweets, them 2.5 tweets will contain video content, whereas 5 tweets will contain an images.
+
+Keeping the assumption that we have 500M DAUs, we come to the following estimations:
