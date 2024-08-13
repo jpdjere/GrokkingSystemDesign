@@ -351,3 +351,44 @@ Note that we multiply by 8 to convert bytes into bits, since bandwith is measure
 **Outgoing traffic:** Let's assume that a single user views 50 tweets in a day. Considering the same ratio of five percent and 10 percent for videos and images, respectively, for those 50 tweets, them 2.5 tweets will contain video content, whereas 5 tweets will contain an images.
 
 Keeping the assumption that we have 500M DAUs, we come to the following estimations:
+
+$$ \text{Tweets viewed per day} = 500M \times 50\text{ tweets} = 25 B\text{ tweets}  $$
+
+$$ \text{Tweets viewed per second} = \frac{25 \times 10^9}{86400} = 289.000 = 289 \times 10^3 \text{ tweets viewed/s}  $$
+
+If one tweet has a text context equal to 250 bytes:
+
+$$
+\begin{align*}
+\text{Bandwith for text tweets} &= 289 \times 10^3 \text{ tweet/s} \times 250 B \times 8 \text{ bits/B} \\
+                                &≈ 0.578 \text{ Gbps}
+\end{align*}
+$$
+
+$$ 
+\begin{align*}
+\text{Bandwith for image tweets} &= 289 \times 10^3 \text{ tweet/s} \times \frac{10}{100} \times 200 \times 10^3 B \times 8 \text{ bits/B} \\
+                                 &≈ 46.25 \text{ Gbps}
+\end{align*}
+$$
+
+$$ 
+\begin{align*}
+\text{Bandwith for video tweets} &= 289 \times 10^3 \text{ tweet/s} \times \frac{5}{100} \times 3 \times 10^6 B \times 8 \text{ bits/B} \\
+                                 &≈ 346.24 \text{ Gbps}
+\end{align*}
+$$
+
+The total outgoing traffic required will be equal to: 
+
+$$ \text{Outgoing traffic} = 0.578 + 46.24 + 347 ≈ 394 Gbps  $$
+
+So, for our calculations Twitter will need a total bandwidth of:
+
+$$
+\begin{align*}
+\text{Total bandwidth requirements} &= \text{Incoming traffic} + \text{Outgoing traffic} \\
+                                   &= 24 + 394 \text{ Gbps} \\
+                                   &= 418 \text{ Gbps}
+\end{align*}
+$$
