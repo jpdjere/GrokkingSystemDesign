@@ -399,5 +399,6 @@ $$
 
 In 2023, 20 TB disks are readily available. That means we need about 5000 disks to host 93 PB. Even if we incorporate three way replication, that means 15,000 disks. At a retail price of $400 dollars each, that sums up to 6 million dollars, which is doable for such an organization (and orgs this big usually get big volume discounts on purchases)
 
-2. **Isn't the number of the needed bandwith of 420 Gpbs too high?**
+2. **Isn't the number of the needed bandwidth of 420 Gbps too high?**
 
+Many data centers of an organization are connected with high speed networks such as 1 Tbps. Also, orgs like Twitter will have multiple, geographically dispersed data centers whose collective bandwidth can easily match what we calculated.
